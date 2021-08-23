@@ -1,37 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .attribution { font-size: 11px; text-align: center; }
+      .attribution a { color: hsl(228, 45%, 44%); }
+    </style>
+    <title>Frontend Mentor | Rock, Paper, Scissors</title>
+  </head>
+  <body>
+    <div class="container main-container">
+      <div class="header-container">
+        <header class="main-header">
+          <div class="flex-container">
+            <div class="label-container">
+              <h2>
+                Rock
+              </h2>
+              <h2>
+                Paper
+              </h2>
+              <h2>
+                Scissors
+              </h2>
+            </div>
+            <div class="score-container">
+              <span>Score</span>
+              <h2 class="player-score">12</h2>
+            </div>
+          </div>
+        </header>
+      </div>
+      <div class="gameplay">
+        <div class="player-pick grid-container player-options">
+          <button class="btn rps-button" type="button">
+            <span>
+              <img class="rps-icon" src="images/icon-paper.svg" alt="">
+            </span>
+          </button>
+        </div>
+        <div class="rps-result player-options">
 
-  Score
-  Rules
+        </div>
+      </div>
+      Score
+      Rules
 
-  You Picked
-  The House Picked
+      You Picked
+      The House Picked
 
-  You Win
-  You Lose
+      You Win
+      You Lose
 
-  Play Again
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-
-
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+      Play Again
+    </div>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://github.com/arthsabino/">@arthsabino</a>.
+    </div>
+  </body>
 </html>

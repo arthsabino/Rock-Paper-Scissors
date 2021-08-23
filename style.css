@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;900&display=swap');
+
+:root {
+    --dark-text: hsl(229, 25%, 31%);
+    --score-text: hsl(229, 64%, 46%);
+    --header-outline: hsl(217, 16%, 45%);
+    --desktop-width: 950px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: hsl(214, 47%, 23%);
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    color: #fff;
+}
+
+h2 {
+    font-size: 3em;
+    font-weight: 700;
+}
+.container {
+    margin: 0 auto;
+    height: auto;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.grid-container {
+    display: grid;
+}
+
+.btn {
+    border: none;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.main-container {
+    width: var(--desktop-width);
+    padding: 2em 0;
+}
+
+.header-container {
+    padding: 1.5em 2em;
+    border: 3px solid var(--header-outline);
+    border-radius: 15px;
+}
+
+.label-container h2 {
+    text-transform: uppercase;
+    line-height: 0.8;
+}
+
+.label-container {
+    flex-grow: 1;
+}
+
+.score-container {
+    text-align: center;
+    color: var(--dark-text);
+    background-color: white;
+    border-radius: 10px;
+    padding: 1em 3em;
+}
+
+.score-container span {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1em;
+}
+
+.player-pick {
+    grid-template-columns: repeat(2, 50%);
+}
+
+.rps-button {
+    position: relative;
+    background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    padding: 3em;
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+}
+
+.rps-button span {
+    position: absolute;
+    padding: 2em;
+    background-color: #fff;
+    width: 78%;
+    height: 78%;
+    border-radius: 50%;
+    top: 15px;
+    left: 15px;
+    box-shadow: inset 1px 2px 5px var(--header-outline);
+}
