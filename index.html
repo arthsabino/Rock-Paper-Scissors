@@ -6,6 +6,7 @@
 
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <style>
       .attribution { font-size: 11px; text-align: center; }
       .attribution a { color: hsl(228, 45%, 44%); }
@@ -18,45 +19,86 @@
         <header class="main-header">
           <div class="flex-container">
             <div class="label-container">
-              <h2>
-                Rock
-              </h2>
-              <h2>
-                Paper
-              </h2>
-              <h2>
-                Scissors
-              </h2>
+              <h2>Rock</h2>
+              <h2>Paper</h2>
+              <h2>Scissors</h2>
             </div>
             <div class="score-container">
               <span>Score</span>
-              <h2 class="player-score">12</h2>
+              <h2 class="player-score">0</h2>
             </div>
           </div>
         </header>
       </div>
       <div class="gameplay">
-        <div class="player-pick grid-container player-options">
-          <button class="btn rps-button" type="button">
-            <span>
-              <img class="rps-icon" src="images/icon-paper.svg" alt="">
-            </span>
-          </button>
+        <div class="player-pick-container">
+          <div class="player-pick grid-container player-options">
+            <button class="btn rps-button paper-button" type="button">
+              <span>
+                <img class="rps-icon" src="images/icon-paper.svg" alt="">
+              </span>
+            </button>
+            <button class="btn rps-button scissor-button" type="button">
+              <span>
+                <img class="rps-icon" src="images/icon-scissors.svg" alt="">
+              </span>
+            </button>
+            <button class="btn rps-button rock-button" type="button">
+              <span>
+                <img class="rps-icon" src="images/icon-rock.svg" alt="">
+              </span>
+            </button>
+          </div>
         </div>
-        <div class="rps-result player-options">
-
+        <div class="rps-result player-options" style="display: none;">
+          <div class="result-container flex-container">
+            <div class="rps-player-pick-container pick-container">
+              <div>
+                <span>You Picked</span>
+              </div>
+              <button class="btn rps-button scissor-button" type="button">
+                <span>
+                  <img class="rps-icon" src="images/icon-scissors.svg" alt="">
+                </span>
+              </button>
+            </div>
+            <div>
+              <h2>
+                You win
+              </h2>
+              <button class="btn btn-play-again">Play Again</button>
+            </div>
+            <div class="rps-computer-pick-container pick-container">
+              <div>
+                <span>The house picked</span>
+              </div>
+              <button class="btn rps-button scissor-button" type="button">
+                <span>
+                  <img class="rps-icon" src="images/icon-scissors.svg" alt="">
+                </span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-      Score
-      Rules
-
-      You Picked
-      The House Picked
-
-      You Win
-      You Lose
-
-      Play Again
+      <div class="text-end">
+        <button class="btn btn-rules btn-white">Rules</button>
+      </div>
+    </div>
+    <div class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Rules</h2>
+        </div>
+        <div class="modal-body">
+          <img src="images/image-rules.svg" alt="">
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-modal-close">
+            <img src="images/icon-close.svg" alt="">
+          </button>
+        </div>
+      </div>
     </div>
     <div class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
