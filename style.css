@@ -118,6 +118,14 @@ h2 {
     text-transform: uppercase;
 }
 
+.player-options {
+    display: none;
+}
+
+.player-options.active {
+    display: block;
+}
+
 .player-pick {
     width: 70%;
     margin: 0 auto;
@@ -155,7 +163,7 @@ h2 {
     box-shadow: inset -1px 4px 10px 5px var(--header-outline);
 }
 
-.scissor-button {
+.scissors-button {
     background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
 }
 

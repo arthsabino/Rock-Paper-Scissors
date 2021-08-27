@@ -31,37 +31,28 @@
         </header>
       </div>
       <div class="gameplay">
-        <div class="player-pick-container">
-          <div class="player-pick grid-container player-options">
-            <button class="btn rps-button paper-button" type="button">
+        <div class="player-pick-container player-options active">
+          <div class="player-pick grid-container">
+            <button class="btn-choice btn rps-button paper-button" type="button" data-btn="paper">
               <span>
                 <img class="rps-icon" src="images/icon-paper.svg" alt="">
               </span>
             </button>
-            <button class="btn rps-button scissor-button" type="button">
+            <button class="btn-choice btn rps-button scissors-button" type="button" data-btn="scissors">
               <span>
                 <img class="rps-icon" src="images/icon-scissors.svg" alt="">
               </span>
             </button>
-            <button class="btn rps-button rock-button" type="button">
+            <button class="btn-choice btn rps-button rock-button" type="button" data-btn="rock">
               <span>
                 <img class="rps-icon" src="images/icon-rock.svg" alt="">
               </span>
             </button>
           </div>
         </div>
-        <div class="rps-result player-options" style="display: none;">
+        <div class="rps-result player-options">
           <div class="result-container flex-container">
-            <div class="rps-player-pick-container pick-container">
-              <div>
-                <span>You Picked</span>
-              </div>
-              <button class="btn rps-button scissor-button" type="button">
-                <span>
-                  <img class="rps-icon" src="images/icon-scissors.svg" alt="">
-                </span>
-              </button>
-            </div>
+            <div class="rps-player-pick-container pick-container"></div>
             <div>
               <h2>
                 You win
@@ -72,7 +63,7 @@
               <div>
                 <span>The house picked</span>
               </div>
-              <button class="btn rps-button scissor-button" type="button">
+              <button class="btn btn-result rps-button scissors-button" type="button">
                 <span>
                   <img class="rps-icon" src="images/icon-scissors.svg" alt="">
                 </span>

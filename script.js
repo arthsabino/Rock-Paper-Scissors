@@ -31,10 +31,40 @@ function btnModalCloseClicked(event) {
 }
 
 function playerPickButtonClicked(event) {
-    let element = event.target;
-
+    let element = event.currentTarget;
+    let playerOptions = document.getElementsByClassName('player-options')
+    let playerOptionsParentElement = element.closest('.player-options')
+    toggleActive(playerOptions)
+    if(element.classList.contains('btn-choice')) {
+        displayResults(element.dataset.btn)
+    } else {
+        displayPlayerPickPage()
+    }
 }
 
-function showResultsPage() {
+function displayResults(playerChoice) {
+    console.log(playerChoice)
+    let playerPickResultContainer = document.getElementsByClassName('rps-player-pick-container')[0]
+    let divElement = document.createElement('div')
+    playerPickResultContainer.innerHTML = `
+        <div>
+            <span>You Picked</span>
+        </div>
+        <button class="btn btn-result rps-button ${playerChoice}-button" type="button">
+            <span>
+            <img class="rps-icon" src="images/icon-${playerChoice}.svg" alt="">
+            </span>
+        </button>
+    `
     
+}
+
+function displayPlayerPickPage() {}
+
+function toggleActive(elementClass) {
+    for(let i = 0; i < elementClass.length; i++) {
+        let element = elementClass[i]
+        if(element.classList.contains('active')) element.classList.remove('active')
+        else element.classList.add('active')
+    }
 }
