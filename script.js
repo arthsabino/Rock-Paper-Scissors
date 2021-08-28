@@ -8,7 +8,7 @@ function ready() {
     let modal = document.getElementsByClassName('modal')[0]
     let btnRules = document.getElementsByClassName('btn-rules')[0]
     let btnModalClose = document.getElementsByClassName('btn-modal-close')[0]
-    let playerPickElement = document.getElementsByClassName('player-pick')[0]
+    let playAgainElement = document.getElementsByClassName('btn-play-again')[0]
     let playerPickButtons = document.getElementsByClassName('btn-choice')
 
     for(let i = 0; i < playerPickButtons.length; i++) {
@@ -18,6 +18,9 @@ function ready() {
 
     btnRules.addEventListener('click', btnRulesClicked)
     btnModalClose.addEventListener('click', btnModalCloseClicked)
+    playAgainElement.addEventListener('click', btnPlayAgainClicked)
+
+    document.getElementsByClassName('player-score')[0].innerText = (sessionStorage.getItem('score')) ? sessionStorage.getItem('score') : 0
 }
 
 function btnRulesClicked(event) {
@@ -33,7 +36,6 @@ function btnModalCloseClicked(event) {
 function playerPickButtonClicked(event) {
     let element = event.currentTarget;
     let playerOptions = document.getElementsByClassName('player-options')
-    let playerOptionsParentElement = element.closest('.player-options')
     let computerChoice = getComputerChoice()
     let playerChoice = element.dataset.btn
 
@@ -41,6 +43,12 @@ function playerPickButtonClicked(event) {
     displayResults(playerChoice, computerChoice)
 }
 
+function btnPlayAgainClicked(event) {
+    let playerOptions = document.getElementsByClassName('player-options')
+    let resultLabel = document.getElementsByClassName('result-label')
+    toggleActive(playerOptions)
+    toggleActive(resultLabel)
+}
 function getComputerChoice() {
     const rpsChoices = ['rock', 'paper', 'scissors'];
     let randomNumber = (Math.floor(Math.random() * 2)) + 1 
@@ -63,17 +71,17 @@ function displayResults(playerChoice, computerChoice) {
     let playerPickResultContainer = document.getElementsByClassName('rps-player-pick-container')[0]
     let computerPickResultContainer = document.getElementsByClassName('rps-computer-pick-container')[0]
     let resultLabel = document.getElementsByClassName('result-label')[0]
-    
+    const results = {0 : "It's a tie", 1 : "You Win", "-1": "You Lose"}
+
     //displays content
     playerPickResultContainer.innerHTML = createResultsContent('You', playerChoice)
     computerPickResultContainer.innerHTML = createResultsContent('The House', computerChoice)
     //animate computer pick
+
     let btnResult = computerPickResultContainer.getElementsByClassName('btn-result')[0]
     btnResult.classList.add('show-result-animation')
-    
-    const results = {0 : "It's a tie", 1 : "You Win", "-1": "You Lose"}
+
     result = evaluateResults(playerChoice, computerChoice)
-    console.log(result)
     updateResultLabel(results[result])
     setTimeout(()=> {
         resultLabel.classList.add('active')
@@ -85,43 +93,42 @@ function displayResults(playerChoice, computerChoice) {
 
 function evaluateResults(playerChoice, computerChoice) {
     let result = 0;
-    console.log(playerChoice === 'rock')
     if(playerChoice === 'rock') {
         switch(computerChoice) {
             case 'rock':
                 result = 0
                 break;
             case 'paper':
-                result = 1
+                result = -1
                 break;
             case 'scissors':
-                result = -1
+                result = 1
                 break;
         }
     }
     else if(playerChoice === 'paper'){
         switch(computerChoice) {
             case 'rock':
-                result = -1
+                result = 1
                 break;
             case 'paper':
                 result = 0
                 break;
             case 'scissors':
-                result = 1
+                result = -1
                 break;
         }
     }
     else if (playerChoice === 'scissors'){    
         switch(computerChoice) {
             case 'rock':
-                result = 0
+                result = -1
                 break;
             case 'paper':
                 result = 1
                 break;
             case 'scissors':
-                result = -1
+                result = 0
                 break;
         }
     }
@@ -134,6 +141,7 @@ function updateScore(result) {
     score += result
     if(score <= 0 || isNaN(score)) score = 0
     document.getElementsByClassName('player-score')[0].innerText = score
+    sessionStorage.setItem('score', score)
 }
 
 function updateResultLabel(result) {
