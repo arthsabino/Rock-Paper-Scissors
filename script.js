@@ -39,15 +39,17 @@ function playerPickButtonClicked(event) {
     let computerChoice = getComputerChoice()
     let playerChoice = element.dataset.btn
 
-    toggleActive(playerOptions)
+    toggleClass(playerOptions, 'active')
     displayResults(playerChoice, computerChoice)
 }
 
 function btnPlayAgainClicked(event) {
     let playerOptions = document.getElementsByClassName('player-options')
     let resultLabel = document.getElementsByClassName('result-label')
-    toggleActive(playerOptions)
-    toggleActive(resultLabel)
+    let pickContainers = document.getElementsByClassName('pick-container')
+    toggleClass(playerOptions, 'active')
+    toggleClass(resultLabel, 'active')
+    removeClass(pickContainers, 'effect')
 }
 function getComputerChoice() {
     const rpsChoices = ['rock', 'paper', 'scissors'];
@@ -82,13 +84,23 @@ function displayResults(playerChoice, computerChoice) {
     btnResult.classList.add('show-result-animation')
 
     result = evaluateResults(playerChoice, computerChoice)
-    updateResultLabel(results[result])
+
     setTimeout(()=> {
+        updateResultLabel(results[result])
+        updateResultIcon(result)
         resultLabel.classList.add('active')
         updateScore(result)
-    }, 4000)
+    }, 2500)
     
     
+}
+function updateResultIcon(result) {
+    let playerPickResultContainer = document.getElementsByClassName('rps-player-pick-container')[0]
+    let computerPickResultContainer = document.getElementsByClassName('rps-computer-pick-container')[0]
+
+    if(result == 1) playerPickResultContainer.classList.add('effect')
+    else if(result == -1) computerPickResultContainer.classList.add('effect')
+
 }
 
 function evaluateResults(playerChoice, computerChoice) {
@@ -164,10 +176,17 @@ function createRPSButton(buttonType) {
 
 function displayPlayerPickPage() {}
 
-function toggleActive(elementClass) {
+function toggleClass(elementClass, className) {
     for(let i = 0; i < elementClass.length; i++) {
         let element = elementClass[i]
-        if(element.classList.contains('active')) element.classList.remove('active')
-        else element.classList.add('active')
+        if(element.classList.contains(className)) element.classList.remove(className)
+        else element.classList.add(className)
+    }
+}
+
+function removeClass(elements, className) {
+    for(let i = 0; i < elements.length; i++) {
+        let element = elements[i]
+        element.classList.remove(className)
     }
 }

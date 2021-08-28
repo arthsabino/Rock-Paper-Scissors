@@ -209,9 +209,20 @@ h2 {
     display: none;
 }
 
+.effect::before {
+    content: "";
+    transform: translate(-50%, -25%);
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    z-index: -1;
+    background: radial-gradient(#2C3B5A 38%, #293857 38% 50%, #233455 50% 100%);
+    border-radius: 50%;
+}
+
 .show-result-animation {
     animation: fadein, spin;
-    animation-duration: 4s, 4s;
+    animation-duration: 2.5s, 2.5s;
 }
 
 .modal {
@@ -303,3 +314,17 @@ h2 {
     to   { transform: rotateX(3600deg); }
 }
 
+
+@media only screen and (max-width: 375px) {
+    .main-container {
+        width: 375px;
+    }
+    .modal-content {
+        width: 100%;
+        padding: 5em 0;
+        margin: 14% auto;
+    }
+    
+    .player-pick {
+        width: 100%;
+    }
